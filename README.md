@@ -1,4 +1,4 @@
-Objectlab Tommy Server : Installation
+Objectlab Party Server : Installation
 ============
 The 'party server' does just that: it serves the party, dude.  Not the Party (in the Bolshevik sense), but *the Par-tay.*
 
