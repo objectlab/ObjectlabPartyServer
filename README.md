@@ -24,16 +24,27 @@ Next, you need to set up Bottle.
 
 http://bottlepy.org/docs/dev/index.html
 
-Bottle dependencies
+Bottle dependencies:
 
-* pip install mysql-python
-* pip intall bottle-mysql
-* pip install beaker
+```
+ pip install mysql-python
+ pip intall bottle-mysql
+ pip install beaker
+```
 
 Installing mysql 
 
+```
 sudo apt-get install mysql-server mysql-client.
+```
 
+If you get mysql errors connect errors, check your dynamic link path. Something like:
+
+```
+MYSQL=/usr/local/mysql/bin
+export PATH=$PATH:$MYSQL
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
+```
 
 
 
