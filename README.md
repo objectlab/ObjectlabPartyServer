@@ -47,3 +47,36 @@ export PATH=$PATH:$MYSQL
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 ```
 
+Creating the database:
+--
+
+Once you get mysql installed, you should create a new database (or you can just use the default.  It won't matter because there is only one table.)
+
+```
+create database <insert db name here>;
+use database <insert db name here>;
+```
+
+Now you can create the table schema:
+
+```
+CREATE TABLE USER (
+  USER_ID int(11) NOT NULL AUTO_INCREMENT,
+  NAME varchar(255) NOT NULL DEFAULT '',
+  IMG_REF varchar(255) DEFAULT NULL,
+  BAR_SCORE int(11) NOT NULL DEFAULT '0',
+  BEACON_1 int(11) NOT NULL DEFAULT '0',
+  BEACON_2 int(11) NOT NULL DEFAULT '0',
+  BEACON_3 int(11) NOT NULL DEFAULT '0',
+  BEACON_4 int(11) NOT NULL DEFAULT '0',
+  BEACON_5 int(11) NOT NULL DEFAULT '0',
+  BEACON_6 int(11) NOT NULL DEFAULT '0',
+  BEACON_7 int(11) NOT NULL DEFAULT '0',
+  BEACON_8 int(11) NOT NULL DEFAULT '0',
+  FOUND_EGGS int(11) NOT NULL DEFAULT '0',
+  LAST_BAR_DETECTION timestamp NULL DEFAULT NULL,
+  LAST_BEACON_CLAIM timestamp NULL DEFAULT NULL,
+  DEVICE_ID varchar(255) DEFAULT '',
+  UNIQUE KEY `USER_ID` (`USER_ID`)
+);
+```
