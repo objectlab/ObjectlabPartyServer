@@ -1,10 +1,13 @@
 Objectlab Party Server : Installation
 ============
-This is a test of the dillinger mdown editing system
-- First you do this
-- then you do that
-- finally this
-- and that
+The 'party server' does just that: it serves the party, dude.  Not the Party (in the Bolshevik sense), but *the Par-tay.*
+
+Actually, it handles things like:
+  
+* User Registration
+* Image Upload
+* Beacon 'Claiming'
+* Bar Score Updating
 
 Version
 --
@@ -12,6 +15,13 @@ Version
 
 Installation
 ------------
+The server has only been tested on *nix (specifically Ubuntu), but should work with any Python 2.6+ installation.
+  
+First you need to have Python installation.  
+Next big item, mysql.
+  
+Next, you need to set up Bottle.
+
 
 
 
