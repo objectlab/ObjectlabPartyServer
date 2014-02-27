@@ -30,6 +30,7 @@ Bottle dependencies:
  pip install mysql-python
  pip intall bottle-mysql
  pip install beaker
+ pip install simplejson
 ```
 
 Installing mysql:
