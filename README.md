@@ -81,7 +81,7 @@ CREATE TABLE USER (
 );
 ```
 
-Once you have everything installed, it's a good idea to test your python-to-MySQL connection..  like:
+Once you have everything installed, it's a good idea to test your python-to-MySQL connection..  You can open a Python session and type the following:
 
 ```
 import MySQLdb as mdb
