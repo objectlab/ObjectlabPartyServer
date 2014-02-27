@@ -22,9 +22,23 @@ Next big item, mysql.
   
 Next, you need to set up Bottle.
 
+http://bottlepy.org/docs/dev/index.html
+
+Bottle dependencies
+
+* pip install mysql-python
+* pip intall bottle-mysql
+* pip install beaker
+
+Installing mysql 
+
+sudo apt-get install mysql-server mysql-client.
 
 
 
+
+
+OLD STUFF
 
 Dillinger
 =========
