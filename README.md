@@ -80,3 +80,5 @@ CREATE TABLE USER (
   UNIQUE KEY `USER_ID` (`USER_ID`)
 );
 ```
+
+NEXT:  UWSGI set up... 
