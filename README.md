@@ -32,7 +32,7 @@ Bottle dependencies:
  pip install beaker
 ```
 
-Installing mysql 
+Installing mysql:
 
 ```
 sudo apt-get install mysql-server mysql-client.
@@ -47,9 +47,8 @@ export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 ```
 
 
-
-
-OLD STUFF
+**
+OLD STUFF**
 
 Dillinger
 =========
