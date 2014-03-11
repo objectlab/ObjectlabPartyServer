@@ -22,9 +22,9 @@ Next big item, mysql.
   
 Next, you need to set up Bottle.
 
-http://bottlepy.org/docs/dev/index.html
+[http://bottlepy.org/docs/dev/index.html](Bottle Homepage)
 
-Bottle dependencies:
+Some useful Bottle dependencies that we utilized:
 
 ```
  pip install mysql-python
@@ -47,8 +47,8 @@ export PATH=$PATH:$MYSQL
 export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 ```
 
-Creating the database:
---
+###Creating the database:
+
 
 Once you get mysql installed, you should create a new database (or you can just use the default.  It won't matter because there is only one table.)
 
@@ -89,6 +89,68 @@ con = mdb.connect(<your serverName>, <your db userName>, <your db password>, <yo
 ```
 If it doesn't throw an exception, you're good to go.
 
+###Deployment:
+  
+  
+Bottle is a great little wsgi app server that ships with 
+its own HTTP server.  This is fine for testing, but I didn't think it would hold together with more than a few people using it.  Both the iPhone app and the D3.js visualization make a lot of server requests so we needed a more scaleable container than the default server.
+  
+####UWSGI
+
+UWSGI supports pre-forked, multi-threaded access to Python applications that conform to the WSGI standard.  (more information here: [http://uwsgi-docs.readthedocs.org/en/latest/](http://uwsgi-docs.readthedocs.org/en/latest/ "UWSGI Homepage")
+
+You can run the UWSGI container in a bunch of different ways, but we settled on the following for our deployment:
+
+```
+uwsgi --http :9080 --wsgi-file /home/cmollis/partyrockin/partyrockin.py --master --processes 20 --threads 4
 
 
-NEXT:  UWSGI set up... 
+//This command runs the bottle app on port 9080 with 20 pre-forked processes; 4 connection threads per process.
+```
+
+Now that we have a performant container for our application, we should put a performant web server in front of it.
+
+####NGINX
+Finally, we installed NGINX on port 8080 and locked down all of the other ports on the AWS instance.   We wanted to use NGINX to reverse-proxy to the UWSGI instance, but also serve up any images and static files (like user images taken with their phones, and the D3.js visualization).
+
+There is a lot of web collateral on how to set up NGINX as a reverse-proxy, but here is a sample from our server configuration file for how this is done:
+
+```
+server {
+        #listen   80; ## listen for ipv4; this line is default and implied
+        #listen   [::]:80 default ipv6only=on; ## listen for ipv6
+
+        root /usr/share/nginx/www;
+        index index.html index.htm;
+
+        # Make site accessible from http://localhost/
+        server_name localhost;
+
+        location @proxy {
+
+                proxy_pass http://localhost:9080;
+                include /etc/nginx/proxy_params;
+        }
+
+        location / {
+                # First attempt to serve request as file, then
+                # as directory, then fall back to index.html
+                #try_files $uri $uri/ /index.html;
+                # Uncomment to enable naxsi on this location
+                # include /etc/nginx/naxsi.rules
+
+                try_files $uri @proxy;
+        }
+
+        location ~* \.(js|css|jpg|jpeg|gif|png|svg|ico|pdf|html|htm)$ {
+       }
+
+        location /doc/ {
+                alias /usr/share/doc/;
+                autoindex on;
+                allow 127.0.0.1;
+                deny all;
+        }
+```
+
+
