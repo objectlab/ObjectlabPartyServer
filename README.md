@@ -113,7 +113,11 @@ Now that we have a performant container for our application, we should put a per
 ####NGINX
 Finally, we installed NGINX on port 80 and locked down all of the other ports on the AWS instance.   We wanted to use NGINX to reverse-proxy to the UWSGI instance, but also serve up any images and static files (like user images taken with their phones, and the D3.js visualization).
 
-There is a lot of web collateral on how to set up NGINX as a reverse-proxy [http://www.howtoforge.com/how-to-set-up-nginx-as-a-reverse-proxy-for-apache2-on-ubuntu-12.04](NGINX Reverse Proxy How-to), but here is a sample from our server configuration file for how this is done:
+There is a lot of web collateral on how to set up NGINX as a reverse-proxy:
+
+ [http://www.howtoforge.com/how-to-set-up-nginx-as-a-reverse-proxy-for-apache2-on-ubuntu-12.04](NGINX Reverse Proxy How-to)
+ 
+Here is an excerpt from our server configuration:
 
 ```
 server {
