@@ -115,7 +115,7 @@ Finally, we installed NGINX on port 80 and locked down all of the other ports on
 
 There is a lot of web collateral on how to set up NGINX as a reverse-proxy:
 
- [http://www.howtoforge.com/how-to-set-up-nginx-as-a-reverse-proxy-for-apache2-on-ubuntu-12.04](NGINX Reverse Proxy How-to)
+ [http://www.howtoforge.com/how-to-set-up-nginx-as-a-reverse-proxy-for-apache2-on-ubuntu-12.04]
  
 Here is an excerpt from our server configuration:
 
