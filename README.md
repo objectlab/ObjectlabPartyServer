@@ -39,7 +39,15 @@ Installing mysql:
 sudo apt-get install mysql-server mysql-client.
 ```
 
-If you get mysql errors connect errors, check your dynamic link path. Something like:
+Once you have everything installed, it's a good idea to test your python-to-MySQL connection..  You can open a Python session and type the following:
+
+```
+import MySQLdb as mdb
+con = mdb.connect(<your serverName>, <your db userName>, <your db password>, <your db database>)
+```
+If it doesn't throw an exception, you're good to go.
+
+If you do get mysql errors connect errors, check your dynamic link path. Something like:
 
 ```
 MYSQL=/usr/local/mysql/bin
@@ -80,14 +88,6 @@ CREATE TABLE USER (
   UNIQUE KEY `USER_ID` (`USER_ID`)
 );
 ```
-
-Once you have everything installed, it's a good idea to test your python-to-MySQL connection..  You can open a Python session and type the following:
-
-```
-import MySQLdb as mdb
-con = mdb.connect(<your serverName>, <your db userName>, <your db password>, <your db database>)
-```
-If it doesn't throw an exception, you're good to go.
 
 ###Deployment:
   
