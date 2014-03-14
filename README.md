@@ -22,7 +22,7 @@ Next big item, mysql.
   
 Next, you need to set up Bottle.
 
-[http://bottlepy.org/docs/dev/index.html]
+[http://bottlepy.org/docs/dev/index.html](http://bottlepy.org/docs/dev/index.html)
 
 Some useful Bottle dependencies that we utilized:
 
