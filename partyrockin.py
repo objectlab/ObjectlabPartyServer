@@ -11,8 +11,8 @@ import copy
 import os
 import base64
 
-userName = "cmollis"
-password = "swordfi$h"
+userName = "yourdbname"
+password = "yourdbpassword"
 database = "partyrockin"
 serverName = "localhost"
 
